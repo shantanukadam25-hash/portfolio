@@ -261,6 +261,7 @@
             padding: 1rem 1.8rem;
             border: 1px solid #eef2f8;
         }
+        /* Profile image styling */
         .img-placeholder {
             width: 110px;
             height: 110px;
@@ -269,9 +270,37 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #1e6f5c;
-            font-size: 3rem;
+            overflow: hidden;
             box-shadow: 0 8px 14px rgba(0,0,0,0.05);
+            flex-shrink: 0;
+        }
+        .img-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .image-link-wrapper {
+            text-align: center;
+            margin-top: 6px;
+            width: 110px;
+        }
+        .image-link-wrapper a {
+            font-size: 0.7rem;
+            background: #f1f6fa;
+            padding: 0.2rem 0.6rem;
+            border-radius: 30px;
+            text-decoration: none;
+            color: var(--accent);
+            transition: 0.1s;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            border: 1px solid #e0edf2;
+        }
+        .image-link-wrapper a:hover {
+            background: var(--accent-light);
+            color: #0f5243;
         }
         .profile-text h3 {
             font-size: 1.6rem;
@@ -279,6 +308,11 @@
         .profile-text p {
             max-width: 500px;
             color: #2c4b6e;
+        }
+        .profile-image-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         hr {
@@ -308,6 +342,9 @@
                 flex-direction: column;
                 text-align: center;
             }
+            .profile-image-block {
+                margin-bottom: 0.5rem;
+            }
         }
         .btn-link {
             color: var(--accent);
@@ -323,10 +360,19 @@
 <body>
 <div class="container">
     <div class="portfolio-inner">
-        <!-- Profile / About area -->
+        <!-- Profile / About area with UPLOADED IMAGE (PCCOE Logo / personal image as provided) and direct image link -->
         <div class="profile-area">
-            <div class="img-placeholder">
-                <i class="fas fa-user-circle"></i>
+            <div class="profile-image-block">
+                <div class="img-placeholder">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/PCCOE-Logo-24.png/250px-PCCOE-Logo-24.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" 
+                         alt="Shantanu Kadam uploaded image (PCCOE Logo)">
+                </div>
+                <div class="image-link-wrapper">
+                    <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/PCCOE-Logo-24.png/250px-PCCOE-Logo-24.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail" 
+                       target="_blank" rel="noopener noreferrer">
+                        <i class="fas fa-external-link-alt"></i> View uploaded image
+                    </a>
+                </div>
             </div>
             <div class="profile-text">
                 <h3>Shantanu Prakash Kadam</h3>
@@ -384,9 +430,9 @@
         <div class="section">
             <h2><i class="fas fa-award"></i> Achievements & Certificates</h2>
             <div class="grid-2col">
-                <!-- LEFT COLUMN: core achievements + NEW ENGINEERING ACHIEVEMENT -->
+                <!-- LEFT COLUMN: core achievements + ENGINEERING ACHIEVEMENT -->
                 <div>
-                    <!-- NEW ACHIEVEMENT: Pimpri Chinchwad College of Engineering -->
+                    <!-- ACHIEVEMENT: Pimpri Chinchwad College of Engineering -->
                     <div class="cert-badge" style="border-left-color: #e6b12e; background: #fffbf0;">
                         <div class="cert-title">🏛️ Pimpri Chinchwad College of Engineering <span class="cert-year">2025</span></div>
                         <div class="issuer">PCET's Pimpri Chinchwad College of Engineering, Nigdi, Pune</div>
@@ -448,7 +494,7 @@
                     </div>
                 </div>
             </div>
-            <div style="margin-top: 0.8rem; font-size: 0.8rem; text-align: center; opacity: 0.7;"><i class="fas fa-upload"></i> *Click on placeholders to add actual certificate images or badge previews. ✨ New: PCCOE achievement added.</div>
+            <div style="margin-top: 0.8rem; font-size: 0.8rem; text-align: center; opacity: 0.7;"><i class="fas fa-upload"></i> *Click on placeholders to add actual certificate images or badge previews. ✨ New: PCCOE achievement + uploaded image & link added at top.</div>
         </div>
 
         <!-- EDUCATION TIMELINE (updated with PCCOE reference) -->
@@ -543,14 +589,15 @@
             </div>
         </div>
 
-        <!-- Footer with contact and note -->
+        <!-- Footer with contact and note about image and link -->
         <footer>
-            <i class="fas fa-camera"></i> [Profile photo area] — add your image in the placeholder above &nbsp;|&nbsp; 
+            <i class="fas fa-camera"></i> Profile image added at top (PCCOE emblem / your uploaded image) &nbsp;|&nbsp; 
+            <i class="fas fa-external-link-alt"></i> Direct image link available below the photo &nbsp;|&nbsp;
             <i class="fas fa-certificate"></i> Certificate images: click on any [placeholder] box to replace with actual scanned certificate or badge.
             <br><br>
             📧 shantanu.portfolio@example.com &nbsp;|&nbsp; <i class="fab fa-linkedin"></i> linkedin.com/in/shantanu-kadam &nbsp;|&nbsp; <i class="fab fa-github"></i> github.com/shantanu-creates
             <br>
-            <span style="font-size: 0.7rem;">© 2026 Shantanu Prakash Kadam — Modern portfolio | PCCOE achievement integrated</span>
+            <span style="font-size: 0.7rem;">© 2026 Shantanu Prakash Kadam — Modern portfolio | PCCOE achievement integrated | uploaded image + image link as requested</span>
         </footer>
     </div>
 </div>
