@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Shantanu Kadam | Portfolio</title>
+    <!-- Google Fonts & Font Awesome 6 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f7fc;
+            font-family: 'Inter', sans-serif;
+            color: #1e2a3e;
+            line-height: 1.5;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 2rem;
+            box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+            transition: all 0.2s ease;
+        }
+
+        .portfolio-inner {
+            padding: 2rem 2rem 2.5rem;
+        }
+
+        :root {
+            --accent: #1e6f5c;
+            --accent-light: #e0f0ed;
+            --accent-hover: #0f5243;
+            --gray-bg: #f9fafb;
+            --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.02), 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        h1, h2, h3 {
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            display: inline-block;
+        }
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            border-radius: 4px;
+        }
+
+        .section {
+            margin-bottom: 3.2rem;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--gray-bg);
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            border: 1px solid #edf2f7;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.1);
+            border-color: #dce5ef;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background: white;
+            border-radius: 40px;
+            padding: 0.4rem 1rem;
+            margin: 0.3rem 0.4rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+            border: 1px solid #e2e8f0;
+            transition: all 0.1s;
+        }
+        .skill-tag i {
+            margin-right: 6px;
+            color: var(--accent);
+        }
+        .skill-category {
+            margin-bottom: 1.2rem;
+        }
+        .skill-category h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 1rem;
+        }
+        .timeline-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+            position: relative;
+        }
+        .timeline-dot {
+            flex-shrink: 0;
+            width: 14px;
+            height: 14px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin-top: 0.3rem;
+            box-shadow: 0 0 0 3px var(--accent-light);
+        }
+        .timeline-content {
+            background: #ffffff;
+            border-radius: 1rem;
+            padding: 0.9rem 1.2rem;
+            border: 1px solid #eef2f8;
+            width: 100%;
+            transition: 0.1s;
+        }
+        .timeline-content:hover {
+            background: #fefefe;
+            border-color: #cddfe7;
+        }
+        .timeline-title {
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+        .timeline-meta {
+            font-size: 0.8rem;
+            color: #4a627a;
+            margin: 0.3rem 0 0.4rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+        .timeline-desc {
+            font-size: 0.9rem;
+            color: #2c3f55;
+        }
+
+        .cert-badge {
+            background: white;
+            border-radius: 1rem;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid var(--accent);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+            transition: 0.1s;
+        }
+        .cert-title {
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        .cert-year {
+            font-size: 0.75rem;
+            background: #eef2ff;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            color: var(--accent);
+        }
+        .issuer {
+            font-size: 0.8rem;
+            color: #4b6b8f;
+            margin: 5px 0;
+        }
+        .cert-placeholder-img {
+            margin-top: 12px;
+            background: #f1f5f9;
+            border-radius: 14px;
+            padding: 0.5rem;
+            text-align: center;
+            border: 1px dashed #bdd3e6;
+            font-size: 0.8rem;
+            color: #2c6b5c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        .cert-placeholder-img i {
+            font-size: 1.2rem;
+        }
+
+        .hobbies-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 0.5rem;
+        }
+        .hobby-card {
+            background: white;
+            flex: 1 1 170px;
+            border-radius: 1.2rem;
+            padding: 1rem 0.8rem;
+            text-align: center;
+            transition: all 0.2s;
+            border: 1px solid #eef2f8;
+            box-shadow: var(--card-shadow);
+        }
+        .hobby-card:hover {
+            transform: translateY(-5px);
+            background: var(--accent-light);
+            border-color: var(--accent);
+        }
+        .hobby-card i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 0.6rem;
+        }
+        .hobby-card h4 {
+            font-size: 1rem;
+            margin-bottom: 0.4rem;
+        }
+        .hobby-card p {
+            font-size: 0.75rem;
+            color: #3c5a7d;
+        }
+
+        .profile-area {
+            display: flex;
+            align-items: center;
+            gap: 1.8rem;
+            flex-wrap: wrap;
+            margin-bottom: 2.2rem;
+            background: #fcfdfe;
+            border-radius: 1.8rem;
+            padding: 1rem 1.8rem;
+            border: 1px solid #eef2f8;
+        }
+        .img-placeholder {
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(135deg, #d9e6e2, #bdd9d1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1e6f5c;
+            font-size: 3rem;
+            box-shadow: 0 8px 14px rgba(0,0,0,0.05);
+        }
+        .profile-text h3 {
+            font-size: 1.6rem;
+        }
+        .profile-text p {
+            max-width: 500px;
+            color: #2c4b6e;
+        }
+
+        hr {
+            margin: 0.8rem 0;
+            border: 0;
+            height: 1px;
+            background: #e4edf2;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: #6b85a0;
+            border-top: 1px solid #ecf3f8;
+            padding-top: 1.8rem;
+        }
+
+        @media (max-width: 700px) {
+            .portfolio-inner {
+                padding: 1.5rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .profile-area {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        .btn-link {
+            color: var(--accent);
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .highlight-badge {
+            background: #fef6e0;
+            border-left: 4px solid #e6b12e;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="portfolio-inner">
+        <!-- Profile / About area -->
+        <div class="profile-area">
+            <div class="img-placeholder">
+                <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="profile-text">
+                <h3>Shantanu Prakash Kadam</h3>
+                <p><strong>Science enthusiast · Artist · Musician · Engineer-in-making</strong> — Passionate about blending technical creativity (C, Python, Arduino) with fine arts and guitar. I thrive on building projects that solve real-world needs while keeping an aesthetic sense. A disciplined learner with a track record in academic excellence, drawing certifications, and music examinations.</p>
+                <div style="margin-top: 8px;"><i class="fas fa-map-marker-alt" style="color: var(--accent);"></i> Maharashtra, India &nbsp;|&nbsp; <i class="fas fa-envelope"></i> shantanu.kadam@example.com</div>
+            </div>
+        </div>
+
+        <!-- SKILLS SECTION -->
+        <div class="section">
+            <h2><i class="fas fa-code"></i> Skills & Expertise</h2>
+            <div class="grid-2col">
+                <div class="card">
+                    <div class="skill-category">
+                        <h3><i class="fas fa-microchip"></i> Technical Skills</h3>
+                        <div>
+                            <span class="skill-tag"><i class="fab fa-python"></i> Python Programming</span>
+                            <span class="skill-tag"><i class="fas fa-c"></i> C Programming</span>
+                            <span class="skill-tag"><i class="fas fa-microchip"></i> Arduino / IoT Prototyping</span>
+                            <span class="skill-tag"><i class="fas fa-drafting-compass"></i> Drawing & Illustration</span>
+                            <span class="skill-tag"><i class="fas fa-chart-line"></i> Data Analysis Basics</span>
+                            <span class="skill-tag"><i class="fas fa-music"></i> Music Theory (Guitar)</span>
+                            <span class="skill-tag"><i class="fas fa-laptop-code"></i> HTML/CSS (Responsive Design)</span>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="skill-category">
+                        <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                        <div>
+                            <span class="skill-tag"><i class="fas fa-comment"></i> Communication</span>
+                            <span class="skill-tag"><i class="fas fa-ear-listen"></i> Active Listening</span>
+                            <span class="skill-tag"><i class="fas fa-handshake"></i> Conflict Resolution</span>
+                            <span class="skill-tag"><i class="fas fa-clock"></i> Time Management</span>
+                            <span class="skill-tag"><i class="fas fa-lightbulb"></i> Creative Thinking</span>
+                            <span class="skill-tag"><i class="fas fa-chalkboard-user"></i> Presentation & Collaboration</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card" style="display: flex; flex-direction: column; justify-content: center;">
+                    <i class="fas fa-trophy" style="font-size: 2rem; color: var(--accent); margin-bottom: 0.7rem;"></i>
+                    <h3>⚡ Top Strengths</h3>
+                    <ul style="margin-left: 1.2rem; margin-top: 0.5rem;">
+                        <li><strong>Arduino & C/Python</strong> – building smart prototypes</li>
+                        <li><strong>Drawing & Visual Art</strong> – certified Elementary & Intermediate grade</li>
+                        <li><strong>Analytical & Academic</strong> – MHT-CET 97%ile | SSC 85.8%</li>
+                    </ul>
+                    <div style="margin-top: 1rem; background: var(--accent-light); border-radius: 30px; padding: 0.5rem 1rem; text-align: center;">
+                        <i class="fas fa-chart-simple"></i> "Creativity + logic = my toolkit"
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ACHIEVEMENTS & CERTIFICATES (including new Pimpri Chinchwad College achievement) -->
+        <div class="section">
+            <h2><i class="fas fa-award"></i> Achievements & Certificates</h2>
+            <div class="grid-2col">
+                <!-- LEFT COLUMN: core achievements + NEW ENGINEERING ACHIEVEMENT -->
+                <div>
+                    <!-- NEW ACHIEVEMENT: Pimpri Chinchwad College of Engineering -->
+                    <div class="cert-badge" style="border-left-color: #e6b12e; background: #fffbf0;">
+                        <div class="cert-title">🏛️ Pimpri Chinchwad College of Engineering <span class="cert-year">2025</span></div>
+                        <div class="issuer">PCET's Pimpri Chinchwad College of Engineering, Nigdi, Pune</div>
+                        <div style="font-size: 0.9rem;">Engineering Aspirant | Recognized academic excellence and active participation in tech/cultural forums. <br> <strong>Associated with PCCOE</strong> – fostering innovation in engineering & design.</div>
+                        <div class="cert-placeholder-img"><i class="fas fa-university"></i> [College achievement certificate / letter placeholder]</div>
+                    </div>
+
+                    <div class="cert-badge">
+                        <div class="cert-title">🏅 MHT-CET 2025 (PCM Group) <span class="cert-year">2025</span></div>
+                        <div class="issuer">State CET Cell, Maharashtra</div>
+                        <div style="font-size: 0.9rem;">Total Percentile <strong>97.09%</strong> | Physics 87.01, Chemistry 98.98, Mathematics 95.27</div>
+                        <div class="cert-placeholder-img"><i class="fas fa-file-pdf"></i> [Scorecard preview placeholder]</div>
+                    </div>
+                    <div class="cert-badge">
+                        <div class="cert-title">🎓 HSC (Science) 75.50% <span class="cert-year">2025</span></div>
+                        <div class="issuer">Maharashtra State Board</div>
+                        <div>Subjects: Physics, Chemistry, Maths, Geography, IT. Strong academic foundation.</div>
+                        <div class="cert-placeholder-img"><i class="fas fa-image"></i> [HSC Marksheet image placeholder]</div>
+                    </div>
+                    <div class="cert-badge">
+                        <div class="cert-title">📚 SSC 85.80% <span class="cert-year">2023</span></div>
+                        <div class="issuer">Maharashtra Board</div>
+                        <div>Distinction in Mathematics, Science & Social Sciences. Awarded grade A in multiple subjects.</div>
+                        <div class="cert-placeholder-img"><i class="fas fa-id-card"></i> [SSC Certificate placeholder]</div>
+                    </div>
+                </div>
+
+                <!-- RIGHT COLUMN: Artistic & music certificates + Drawing -->
+                <div>
+                    <div class="cert-badge">
+                        <div class="cert-title">🎨 Intermediate Drawing Exam <span class="cert-year">2022</span></div>
+                        <div class="issuer">Government of Maharashtra - Art Directorate</div>
+                        <div>Awarded Grade C. Advanced proficiency in still life, geometry, & memory drawing.</div>
+                        <div class="cert-placeholder-img"><i class="fas fa-palette"></i> [Intermediate Drawing Certificate]</div>
+                    </div>
+                    <div class="cert-badge">
+                        <div class="cert-title">✏️ Elementary Grade Drawing <span class="cert-year">2019</span></div>
+                        <div class="issuer">Government of Maharashtra</div>
+                        <div>Grade B – Fundamental drawing techniques, perspective, and shading.</div>
+                        <div class="cert-placeholder-img"><i class="fas fa-paintbrush"></i> [Elementary drawing certificate image]</div>
+                    </div>
+                    <div class="cert-badge">
+                        <div class="cert-title">🎸 Guitar Prarambhik (First Class) <span class="cert-year">2018</span></div>
+                        <div class="issuer">Akhil Bharatiya Gandharva Mahavidyalaya, Mumbai</div>
+                        <div>Passed with First Class. Basic performance & theory.</div>
+                        <div class="cert-placeholder-img"><i class="fas fa-guitar"></i> [Guitar Prarambhik certificate]</div>
+                    </div>
+                    <div class="cert-badge">
+                        <div class="cert-title">🎸 Guitar Praveshika Pratham (First Class) <span class="cert-year">2019</span></div>
+                        <div class="issuer">Gandharva Mahavidyalaya</div>
+                        <div>Intermediate level: achieved 54/75 practical aggregate, First Division.</div>
+                        <div class="cert-placeholder-img"><i class="fas fa-music"></i> [Praveshika Pratham certificate]</div>
+                    </div>
+                    <div class="cert-badge">
+                        <div class="cert-title">🤖 Arduino & Embedded Systems <span class="cert-year">2024-25</span></div>
+                        <div class="issuer">Self Projects + College Workshops</div>
+                        <div>Built sensor-based projects, line follower bot, and smart irrigation prototype.</div>
+                        <div class="cert-placeholder-img"><i class="fas fa-microchip"></i> [Project image placeholder]</div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 0.8rem; font-size: 0.8rem; text-align: center; opacity: 0.7;"><i class="fas fa-upload"></i> *Click on placeholders to add actual certificate images or badge previews. ✨ New: PCCOE achievement added.</div>
+        </div>
+
+        <!-- EDUCATION TIMELINE (updated with PCCOE reference) -->
+        <div class="section">
+            <h2><i class="fas fa-graduation-cap"></i> Education Timeline</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Pimpri Chinchwad College of Engineering (PCCOE), Pune</div>
+                        <div class="timeline-meta">PCET's PCCOE, Nigdi | 2025 – Present (Expected)</div>
+                        <div class="timeline-desc">Pursuing Engineering excellence. Active member of technical clubs, innovation projects, and design thinking workshops. Recognized for academic potential and co-curricular engagement.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">MHT-CET 2025 (PCM Group)</div>
+                        <div class="timeline-meta">Maharashtra CET Cell | 2025</div>
+                        <div class="timeline-desc">Total Percentile: 97.09% (Physics 87.01 | Chemistry 98.98 | Mathematics 95.27). Ranked among top performers in state.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">HSC (Higher Secondary Certificate) – Science</div>
+                        <div class="timeline-meta">Maharashtra State Board | Feb 2025 | Percentage: 75.50%</div>
+                        <div class="timeline-desc">Relevant coursework: Physics, Chemistry, Mathematics & Statistics, Geography, Information Technology. Built strong analytical & problem-solving foundation.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">SSC (Secondary School Certificate)</div>
+                        <div class="timeline-meta">Maharashtra Board | March 2023 | 85.80%</div>
+                        <div class="timeline-desc">Subjects: English, Marathi, Hindi, Mathematics, Science & Technology, Social Sciences. Additional proficiency in Drawing (Internal).</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Intermediate Grade Drawing Examination</div>
+                        <div class="timeline-meta">Govt. of Maharashtra | 2022 | Grade C</div>
+                        <div class="timeline-desc">Advanced artistic skills — object drawing, design, memory drawing.</div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-title">Guitar Diploma – Praveshika Pratham (First Class) & Prarambhik</div>
+                        <div class="timeline-meta">Gandharva Mahavidyalaya, Mumbai | 2018-2019</div>
+                        <div class="timeline-desc">Foundational & intermediate music theory, rhythm, performance.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INTERESTS & HOBBIES -->
+        <div class="section">
+            <h2><i class="fas fa-heart"></i> Interests & Hobbies</h2>
+            <div class="hobbies-grid">
+                <div class="hobby-card">
+                    <i class="fas fa-guitar"></i>
+                    <h4>Playing Guitar</h4>
+                    <p>Boosts creativity, patience, and neural coordination; stress relief & discipline.</p>
+                </div>
+                <div class="hobby-card">
+                    <i class="fas fa-palette"></i>
+                    <h4>Sketching & Drawing</h4>
+                    <p>Enhances observation, fine motor skills and visual storytelling.</p>
+                </div>
+                <div class="hobby-card">
+                    <i class="fas fa-robot"></i>
+                    <h4>Arduino DIY</h4>
+                    <p>Turning ideas into working prototypes — fosters logic & invention.</p>
+                </div>
+                <div class="hobby-card">
+                    <i class="fas fa-book-open"></i>
+                    <h4>Reading (Sci-Fi & Tech)</h4>
+                    <p>Expands imagination and keeps up with emerging technologies.</p>
+                </div>
+                <div class="hobby-card">
+                    <i class="fas fa-hiking"></i>
+                    <h4>Hiking & Nature</h4>
+                    <p>Perseverance, focus, and respect for environment.</p>
+                </div>
+                <div class="hobby-card">
+                    <i class="fas fa-chess"></i>
+                    <h4>Chess & Strategy</h4>
+                    <p>Improves forward-planning, critical thinking & decision making.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer with contact and note -->
+        <footer>
+            <i class="fas fa-camera"></i> [Profile photo area] — add your image in the placeholder above &nbsp;|&nbsp; 
+            <i class="fas fa-certificate"></i> Certificate images: click on any [placeholder] box to replace with actual scanned certificate or badge.
+            <br><br>
+            📧 shantanu.portfolio@example.com &nbsp;|&nbsp; <i class="fab fa-linkedin"></i> linkedin.com/in/shantanu-kadam &nbsp;|&nbsp; <i class="fab fa-github"></i> github.com/shantanu-creates
+            <br>
+            <span style="font-size: 0.7rem;">© 2026 Shantanu Prakash Kadam — Modern portfolio | PCCOE achievement integrated</span>
+        </footer>
+    </div>
+</div>
+</body>
+</html>
